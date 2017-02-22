@@ -1,0 +1,88 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<context:annotation-config></context:annotation-config>
+	<context:component-scan base-package="com.scb.banking"></context:component-scan>
+	
+	
+	<bean id="bank" class="com.scb.banking.entities.Bank">
+		<property name="bankCode" value="1001"></property> 
+		<property name="bankName" value="Standard Chartered Bank"></property>
+	</bean>
+	
+	<bean id="customer1" class="com.scb.banking.entities.Customer">
+		<constructor-arg index="0" value="11" type="int"></constructor-arg>
+		<constructor-arg index="1" value="Siva"></constructor-arg>
+		<constructor-arg index="2" ref="dob1"></constructor-arg>
+		<!-- <constructor-arg index="3" ref="permAddress1"></constructor-arg>
+		<constructor-arg index="4" ref="commAddress1"></constructor-arg>
+		<constructor-arg index="5" ref="contactInfo1"></constructor-arg> -->
+	</bean>
+	
+	<bean id="customer2" class="com.scb.banking.entities.Customer">
+		<constructor-arg index="0" value="12" type="int"></constructor-arg>
+		<constructor-arg index="1" value="raman"></constructor-arg>
+		<constructor-arg index="2" ref="dob2"></constructor-arg>
+		<!-- <constructor-arg index="3" ref="permAddress2"></constructor-arg>
+		<constructor-arg index="4" ref="commAddress2"></constructor-arg>
+		<constructor-arg index="5" ref="contactInfo2"></constructor-arg> -->
+	</bean> 
+	
+	<bean id="dob1" class="java.util.Date">
+		<constructor-arg index="0" value="88"></constructor-arg>
+		<constructor-arg index="1" value="00"></constructor-arg>
+		<constructor-arg index="2" value="15"></constructor-arg>
+	</bean>
+	
+	<bean id="dob2" class="java.util.Date">
+		<constructor-arg index="0" value="90"></constructor-arg>
+		<constructor-arg index="1" value="00"></constructor-arg>
+		<constructor-arg index="2" value="04"></constructor-arg>
+	</bean>
+	
+	<bean id="permAddress" class="com.scb.banking.entities.Address">
+		<constructor-arg index="0" value="Cresent Business park"></constructor-arg>
+	<constructor-arg index="1" value="Changi 1"></constructor-arg>
+	<constructor-arg index="2" value="Singapore"></constructor-arg>
+	<constructor-arg index="3" value="520028"></constructor-arg>
+	</bean>
+	
+	<!-- <bean id="permAddress2" class="com.scb.banking.entities.Address">
+		<constructor-arg index="0" value="Cresent Business park"></constructor-arg>
+	<constructor-arg index="1" value="Changi 2"></constructor-arg>
+	<constructor-arg index="2" value="Singapore"></constructor-arg>
+	<constructor-arg index="3" value="520028"></constructor-arg>
+	</bean> -->
+	
+	<bean id="commAddress" class="com.scb.banking.entities.Address">
+		<constructor-arg index="0" value=" g2 lakeview road"></constructor-arg>
+	<constructor-arg index="1" value="chennai"></constructor-arg>
+	<constructor-arg index="2" value="tamilnadu"></constructor-arg>
+	<constructor-arg index="3" value="600033"></constructor-arg>
+	</bean>
+	
+	<!-- <bean id="commAddress2" class="com.scb.banking.entities.Address">
+		<constructor-arg index="0" value="lakeview road"></constructor-arg>
+	<constructor-arg index="1" value="chennai"></constructor-arg>
+	<constructor-arg index="2" value="tamilnadu"></constructor-arg>
+	<constructor-arg index="3" value="600033"></constructor-arg>
+	</bean> -->
+	
+	
+	<bean id="contactInfo" class="com.scb.banking.entities.ContentInfo">
+		<property name="mobile" value="9944190551"></property> 
+		<property name="phone" value="04433051187"></property>
+		<property name="email" value="rk.siv1@sc.com"></property>
+	</bean>
+	<!-- <bean id="contactInfo2" class="com.scb.banking.entities.ContentInfo">
+		<property name="mobile" value="9944190552"></property> 
+		<property name="phone" value="04433051188"></property>
+		<property name="email" value="rk.siv2@sc.com"></property>
+	</bean> -->
+	
+	
+</beans>	
